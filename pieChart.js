@@ -1,9 +1,12 @@
 var svg = d3.select("svg");
 
-var radius = 180;
+var radius = 200;
+var x = radius;
+var y = radius + 50;
 
-var pieChart = svg.append("g").attr("transform", "translate(" + (radius + 200) + "," + (radius + 200) + ")");
+var pieChart = svg.append("g").attr("transform", "translate(" + x + "," + y + ")");
 
+/*
 var colors = d3.scaleOrdinal([
     "#dbf4ad",
     "#6df2ff",
@@ -11,24 +14,20 @@ var colors = d3.scaleOrdinal([
     "#40798c",
     "#4c3a2b"
 ])
+*/
+
+var colors = d3.scaleOrdinal(["#dbf4ad", "#6df2ff", "#8f3985", "#40798c", "#4c3a2b"]);
 
 var pie = d3.pie().value(function (d) {
-    return d.Funding;
+    return d.OperatingExpenditures;
 });
 
 var path = d3.arc()
     .outerRadius(radius)
-    .innerRadius(radius - 15);
+    .innerRadius(radius - 20);
 
-var labelArc = d3.arc()
-    .outerRadius(radius)
-    .innerRadius(radius - 15);
+d3.csv("Data/2016-2017/FundingVsEnrollment.csv", function (data) {
 
-var label = d3.arc()
-    .outerRadius(radius)
-    .innerRadius(radius + 25);
-
-d3.csv("tempData.csv", function (data) {
     var arc = pieChart.selectAll(".arc")
         .data(pie(data))
         .enter().append("g")
@@ -37,39 +36,40 @@ d3.csv("tempData.csv", function (data) {
     arc.append("path")
         .attr("d", path)
         .attr("fill", function (d) {
-            return colors(d.data.School);
+            return colors(d.data.District);
         })
+        .on("mouseover", function (d) {
 
-    //Non-Rotated Labels:
-    /*
-    arc.append("text")
-        .attr("transform", function (d) {
-            var c = labelArc.centroid(d);
-            return "translate(" + c[0] * 1.1 + "," + c[1] * 0.9 + ")";
-        })
-        .attr("dy", "0.35em")
-        .attr("class", "labels")
-        .attr('text-anchor', 'middle')
-        .text(function (d) { return d.data.School; });
-    */
+            d3.select("#l").remove();  //Delete previous label if one exists
+            d3.select("#oe").remove();  //Delete previous Operating Expenditures label if it exists (although probably don't *really* need to do this since it's static)
+            d3.select("#f").remove();  //Delete previous funding label if it exists
 
-    //Rotated Labels
-    //Adapted from http://bl.ocks.org/vigorousnorth/7331bb51d4f0c2ae0314
-    arc.append("text")
-        .attr("transform", function (d) {
-            var midAngle = d.startAngle < Math.PI ? d.startAngle / 2 + d.endAngle / 2 : d.startAngle / 2 + d.endAngle / 2 + Math.PI;
-            return "translate(" + labelArc.centroid(d)[0] + "," + labelArc.centroid(d)[1] + ") rotate(-90) rotate(" + (midAngle * 180 / Math.PI) + ")";
+
+            svg.append("text")
+                .attr("transform", "translate(" + (x + 150) + "," + (y - 175) + ")")
+                .attr("dy", "0.35em")
+                .attr("id", "l")
+                .attr("class", "labels")
+                .attr('text-anchor', 'right')
+                .attr("fill", colors(d.data.District))
+                .text(d.data.District)
+
+            svg.append("text")
+                .attr("transform", "translate(" + (x + 200) + "," + (y - 75) + ")")
+                .attr("dy", "0.35em")
+                .attr("id", "oe")
+                .attr("class", "oe")
+                .attr('text-anchor', 'right')
+                .attr("fill", "#ffffff")
+                .text("Operating Expenditures:")
+
+            svg.append("text")
+                .attr("transform", "translate(" + (x + 220) + "," + y + ")")
+                .attr("dy", "0.35em")
+                .attr("id", "f")
+                .attr("class", "funds")
+                .attr('text-anchor', 'right')
+                .attr("fill", "#ffffff")
+                .text("$" + parseInt(d.data.OperatingExpenditures))
         })
-        .attr("dy", ".35em")
-        .attr("class", "labels")
-        .style("text-anchor", function (d) {
-            var rads = ((d.endAngle - d.startAngle) / 2) + d.startAngle;    //Need to work on this, anchoring is off
-            if (rads >= Math.PI / 4 && rads <= 3 * Math.PI / 4) {
-                return "start";
-            } else if (rads >= 5 * Math.PI / 4 && rads <= 7 * Math.PI / 4) {
-                return "end";
-            } else {
-                return "middle";
-            }
-        })        .text(function (d) { return (d.data.Funding > 10000) ? d.data.School : null; });
 });

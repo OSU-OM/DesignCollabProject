@@ -2,12 +2,15 @@
 <html>
 <head>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="parallax.js-1.5.0/parallax.js"></script>
     <style>
 
         h1 {
             color: #dbf4ad;
-            font: 40px arial;
+            font: 48px arial;
             font-weight: bold;
+            line-height: 3em;
         }
 
         .palette {
@@ -17,23 +20,40 @@
         }
 
         .labels {
-            font: 14px arial;
+            font: 44px arial;
             font-weight: bold;
-            fill: #fff;
+            word-wrap: break-word;
 
             width: 50px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
+        .oe {
+            font: 32px arial;
+            font-weight: bold;
+        }
+
+        .funds {
+            font: 100px arial;
+            font-weight: bold;
+        }
+
+        .parallax-window {
+            min-height: 400px;
+            background: transparent;
+        }
+
     </style>
 </head>
 <body bgcolor="#1f363d">
-    <center>
-        <h1>COLUMBUS EDUCATION STATISTICS</h1>
-        <svg width="1200" height="1200"></svg>
-        <script type="text/javascript" src="ColorPalette.js"></script>
-        <script type="text/javascript" src="pieChart.js"></script>
-    </center>
+    <div class="parallax-window" data-parallax="scroll" data-image-src="columbusBG.jpg">
+        <center>
+            <h1>COLUMBUS EDUCATION STATISTICS</h1>
+            <svg width="1200" height="1000"></svg>
+            <script type="text/javascript" src="pieChart.js"></script>
+        </center>
+    </div>
 </body>
 </html>
