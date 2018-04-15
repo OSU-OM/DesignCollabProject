@@ -18,6 +18,8 @@ var colors = d3.scaleOrdinal([
 
 var colors = d3.scaleOrdinal(["#dbf4ad", "#6df2ff", "#8f3985", "#40798c", "#4c3a2b"]);
 
+var formatDollarAmount = d3.format(",.2f");
+
 var pie = d3.pie().value(function (d) {
     return d.OperatingExpenditures;
 });
@@ -70,6 +72,6 @@ d3.csv("Data/2016-2017/FundingVsEnrollment.csv", function (data) {
                 .attr("class", "funds")
                 .attr('text-anchor', 'right')
                 .attr("fill", "#ffffff")
-                .text("$" + parseInt(d.data.OperatingExpenditures))
+                .text("$" + formatDollarAmount(d.data.OperatingExpenditures))
         })
 });
