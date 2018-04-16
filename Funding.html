@@ -54,14 +54,14 @@
         }
 		
 		path {
-			stroke: #333;
-			stroke-width: 0.5px;
+			//stroke: #333;
+			//stroke-width: 0.5px;
 			transition: fill 250ms linear;
 			transition-delay: 150ms;
 		}
 
 		path:hover {
-			stroke: #000;
+			stroke: #fff;
 			stroke-width: 2.5px;
 			transition-delay: 0;
 		}
@@ -70,6 +70,30 @@
 		font-weight: bold;
 		font-family: 'Poiret One',cursive;
 		}
+
+        .barChart {
+            font-family: 'Poiret One',cursive;
+            font-size: 18px;
+            stroke: #fff;
+        }
+
+        .barY {
+            font-family: 'Poiret One',cursive;
+            font-size: 14px;
+            stroke: #fff;
+        }
+
+        .barX {
+           font-family: 'Poiret One',cursive;
+           font-size: 12px;
+           stroke: #fff;
+        }
+
+        gaugeChart {
+             transition: fill 250ms linear;
+             transition-delay: 150ms;
+        }
+
     </style>
 </head>
 <body bgcolor="#1f363d">
@@ -77,7 +101,8 @@
     <center>
         <h1>COLUMBUS EDUCATION STATISTICS</h1>
 		<svg width="1400" height="1000"></svg>
-        <script type="text/javascript" src="pieChart.js"></script>
+        <script type="text/javascript" src="gaugeChart.js"></script>
+        <script type="text/javascript" id="primaryChart" data-key="undefined" src="pieChart.js"></script>
     </center>
 	</div>
 </body>
