@@ -1,13 +1,34 @@
 //Gauge chart derived from here: https://stackoverflow.com/questions/44164912/d3-gauge-chart-with-labels-and-percentages
 
-var data = [45, 33, 66, 50, 90]
 var radius = 30
+var data;
+data = [45, 33, 66, 50, 90]
+
+var key = 'Columbus City School District';
+
+d3.csv('Data/2016-2017/FundingVsAchievement.csv', function (error, rows) {
+    data.forEach(function (d) {
+        d.below = d['Percent of Students Below'];
+        d.basic = d['Percent of Students Basic'];
+        d.proficient = d['Percent of Students Proficient'];
+        d.accelerated = d['Percent of Students Accelerated'];
+        d.advanced = d['Percent of Students Advanced'];
+    });
+
+    var obj = {};
+    rows.forEach(function (d) {
+        if (d.District = key)
+            obj[d.District] = [d.below, d.basic, d.proficient, d.accelerated, d.advanced];
+    });
+    console.log(obj);
+});
 
 var svg = d3.select("svg")
     .append("g")
-    .attr("transform", "translate(" + 50 + "," + 0 + ")");
+    .attr("transform", "translate(" + 50 + "," + 5 + ")");
 
 var color = '#F95738';
+
 
 var arcs = data.map((v, i) => {
     return d3.arc()
@@ -41,8 +62,9 @@ svg.selectAll('g').each(function (d) {
             g.append('text')
                 .attr("class", "gauge")
                 .text(100 - Math.floor(r.value) + '%').attr('transform',
-                    `translate(${centroid[0]},${centroid[1]}) rotate(${180 / Math.PI * (r.startAngle) + 7})`).attr('alignment-baseline', 'middle')
+                `translate(${centroid[0]},${centroid[1]}) rotate(${180 / Math.PI * (r.startAngle) + 7})`).attr('alignment-baseline', 'middle')
         }
 
     })
 })
+

@@ -2,6 +2,7 @@ var radius = 200;
 var x = radius;
 var y = radius + 50;
 
+/*
 var colors = d3.scaleOrdinal([
     "#dbf4ad",
     "#6df2ff",
@@ -9,13 +10,33 @@ var colors = d3.scaleOrdinal([
     "#40798c",
     "#4c3a2b"
 ])
+*/
+
+
+//TODO
+//Sort alphabetically
+//Use only central Ohio districts
+//Need:
+//Enrollment, grad rate. proficiency
+//Click pie slice to change visualization data
+
+var colors = d3.scaleOrdinal([
+    "#00BFB2",
+    "#105370",
+    "#F4D35E",
+    "#EE964B",
+    "#F95738",
+    '#FAEDCA',
+    '#C1DBB3',
+    '#7EBC89'
+])
 
 var pieData = d3.pie().value(function (d) {
     return d.OperatingExpenditures;
 });
 
 var outerRadius = radius,
-    innerRadius = radius-45,
+    innerRadius = radius-60,
     cornerRadius = 10;
 
 var labelArc = d3.arc()
@@ -74,7 +95,6 @@ var svg = d3.select("svg")
 		//d3.selectAll("h1").transition().style("color","green");
 	
 d3.csv("Data/2016-2017/FundingVsEnrollment.csv", function (csvData) {
-console.log("running");
 	arcDat = svg.selectAll("path")
     .data(pieData(csvData));
 	
@@ -94,23 +114,21 @@ console.log("running");
             d3.select("#f").remove();  //Delete previous funding label if it exists
 
             svg.append("text")
-                .attr("transform", "translate(" + (150) + "," + (175) + ")")
+                .attr("transform", "translate(" + (220) + "," + (85) + ")")
                 .attr("dy", "0.35em")
                 .attr("id", "l")
                 .attr("class", "labels")
                 .attr('text-anchor', 'right')
-                .attr("fill", "#ffffff")
                 //.attr("fill", colors(d.data.District))
                 .text(d.data.District)
 
             svg.append("text")
-                .attr("transform", "translate(" + (200) + "," + (75) + ")")
+                .attr("transform", "translate(" + (220) + "," + (-85) + ")")
                 .attr("dy", "0.35em")
                 .attr("id", "oe")
                 .attr("class", "oe")
                 .attr('text-anchor', 'right')
-                .attr("fill", "#ffffff")
-                .text("Operating Expenditures:")
+                .text("OPERATING EXPENDITURES")
 
             svg.append("text")
                 .attr("transform", "translate(" + (220) + "," + 0 + ")")
@@ -118,7 +136,6 @@ console.log("running");
                 .attr("id", "f")
                 .attr("class", "funds")
                 .attr('text-anchor', 'right')
-                .attr("fill", "#ffffff")
                 .text("$" + formatDollarAmount(d.data.OperatingExpenditures))
 
         })
