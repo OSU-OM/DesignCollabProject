@@ -12,13 +12,18 @@ var colors = d3.scaleOrdinal([
 ])
 */
 
-
 //TODO
 //Sort alphabetically
 //Use only central Ohio districts
+//Use colors to convey some kind of stat?
 //Need:
 //Enrollment, grad rate. proficiency
 //Click pie slice to change visualization data
+
+var svg = d3.select("svg")
+    .append("g")
+    .attr("id", "pieChart")
+    .attr("transform", "translate(" + (x + 100) + "," + y + ")");
 
 var colors = d3.scaleOrdinal([
     "#00BFB2",
@@ -87,10 +92,6 @@ var arcStart = d3.arc()
     .innerRadius(1)
 	.outerRadius(10);
 
-var svg = d3.select("svg")
-  .append("g")
-    .attr("transform", "translate(" + (x+100) + "," + y + ")");
-	
 //startup	
 		//d3.selectAll("h1").transition().style("color","green");
 	
