@@ -2,24 +2,6 @@ var radius = 180;
 var x = radius;
 var y = radius + 80;
 
-/*
-var colors = d3.scaleOrdinal([
-    "#dbf4ad",
-    "#6df2ff",
-    "#8f3985",
-    "#40798c",
-    "#4c3a2b"
-])
-*/
-
-//TODO
-//Sort alphabetically
-//Use only central Ohio districts
-//Use colors to convey some kind of stat?
-//Need:
-//Enrollment, grad rate. proficiency
-//Click pie slice to change visualization data
-
 var svg = d3.select("svg")
     .append("g")
     .attr("id", "pieChart")
@@ -36,9 +18,11 @@ var colors = d3.scaleOrdinal([
     '#7EBC89'
 ])
 
-var pieData = d3.pie().value(function (d) {
-    return d.OperatingExpenditures;
-});
+var pieData = d3.pie()
+    .value(function (d) { return d.OperatingExpenditures; })
+    .sort(function (a, b) {
+        return a.District.localeCompare(b.District);
+    });
 
 var outerRadius = radius,
     innerRadius = radius-60,
@@ -91,9 +75,9 @@ var rect = svg.append("rect")
     .attr("height", 3)
     .attr("fill", "#105370");
 	
-d3.csv("Data/2016-2017/FundingVsEnrollment.csv", function (csvData) {
+d3.csv("Data/CentralOhio/FundingVsEnrollment.csv", function (csvData) {
 	arcDat = svg.selectAll("path")
-    .data(pieData(csvData));
+        .data(pieData(csvData));
 	
 	var Hover = false;
 	
@@ -101,7 +85,7 @@ d3.csv("Data/2016-2017/FundingVsEnrollment.csv", function (csvData) {
         .each(function (d) { d.outerRadius = innerRadius; })
         .attr("d", arc)
         .attr("fill", function (d) {
-            return colors(d.data.District);
+            return colors(d.data.OperatingExpenditures);
         })
         .style("opacity", 0)
         .on("mouseenter", arcTweenRad(outerRadius + 10, 0))
