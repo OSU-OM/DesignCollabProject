@@ -76,7 +76,8 @@ var rect = svg.append("rect")
     .attr("height", 3)
     .attr("fill", "#105370");
 
-
+var format = d3.format(",d");
+var previousDollarValue =0;
 	
 d3.csv("Data/CentralOhio/FundingVsEnrollment.csv", function (csvData) {
 	arcDat = svg.selectAll("path")
@@ -120,13 +121,24 @@ d3.csv("Data/CentralOhio/FundingVsEnrollment.csv", function (csvData) {
                 .attr('text-anchor', 'left')
                 .text("OPERATING EXPENDITURES")
 
-            svg.append("text")
+            txt = svg.append("text")
                 .attr("transform", "translate(" + (-radius - 50) + "," + (radius + 110) + ")")
                 .attr("dy", "0.35em")
                 .attr("id", "f")
                 .attr("class", "funds")
                 .attr('text-anchor', 'left')
-                .text("$" + formatDollarAmount(d.data.OperatingExpenditures))
+				//.transition()
+				//.tween('text', formatDollarAmount(d.data.OperatingExpenditures))
+                .text(previousDollarValue)
+				
+			txt.transition().duration(1500).tween("text", function() {
+				previousDollarValue= d.data.OperatingExpenditures;
+            var that = txt,
+                i = d3.interpolateNumber(that.text().replace(/,|\$/g, ""), previousDollarValue);
+            return function(t) { that.text("$"+format(i(t))); };
+         });
+		  
+		  
 			}
         })
         .on("click", function (d) {
