@@ -162,6 +162,28 @@ d3.csv("Data/CentralOhio/FundingVsEnrollment.csv", function (csvData) {
 d3.select(this).transition()
 	.attrTween("d", arcTweenRad(outerRadius+10,10,true));			
 			
+			
+			d3.select("#f").remove();  //Delete previous funding label if it exists
+			
+			            txt = svg.append("text")
+                .attr("transform", "translate(" + (-radius - 50) + "," + (radius + 110) + ")")
+                .attr("dy", "0.35em")
+                .attr("id", "f")
+                .attr("class", "funds")
+                .attr('text-anchor', 'left')
+				//.transition()
+				//.tween('text', formatDollarAmount(d.data.OperatingExpenditures))
+                .text(previousDollarValue)
+				
+			txt.transition().duration(1500).tween("text", function() {
+				previousDollarValue= d.data.OperatingExpenditures;
+            var that = txt,
+                i = d3.interpolateNumber(that.text().replace(/,|\$/g, ""), previousDollarValue);
+            return function(t) { that.text("$"+format(i(t))); };
+         });
+			
+			
+			
 		}else{
 						Paths.transition()
     .duration(function (d2,i) {return 10*d.endAngle})	
