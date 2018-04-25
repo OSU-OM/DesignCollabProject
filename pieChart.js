@@ -1,6 +1,6 @@
-var radius = 200;
+var radius = 180;
 var x = radius;
-var y = radius + 50;
+var y = radius + 80;
 
 /*
 var colors = d3.scaleOrdinal([
@@ -80,20 +80,16 @@ var width = 1200,
 
 var formatDollarAmount = d3.format(",.2f");
 
-var pie = d3.pie()
-    .padAngle(.02);
-
 var arc = d3.arc()
     .padRadius(outerRadius)
     .innerRadius(innerRadius);
 
-var arcStart = d3.arc()
-    .padRadius(10)
-    .innerRadius(1)
-	.outerRadius(10);
-
-//startup	
-		//d3.selectAll("h1").transition().style("color","green");
+var rect = svg.append("rect")
+    .attr("x", (-radius * 2))
+    .attr("y", ((-radius) - 50))
+    .attr("width", ((radius * 2) + 400))
+    .attr("height", 3)
+    .attr("fill", "#105370");
 	
 d3.csv("Data/2016-2017/FundingVsEnrollment.csv", function (csvData) {
 	arcDat = svg.selectAll("path")
@@ -115,28 +111,27 @@ d3.csv("Data/2016-2017/FundingVsEnrollment.csv", function (csvData) {
             d3.select("#f").remove();  //Delete previous funding label if it exists
 
             svg.append("text")
-                .attr("transform", "translate(" + (220) + "," + (85) + ")")
+                .attr("transform", "translate(" + (-radius - 50) + "," + (radius + 175) + ")")
                 .attr("dy", "0.35em")
                 .attr("id", "l")
                 .attr("class", "labels")
-                .attr('text-anchor', 'right')
-                //.attr("fill", colors(d.data.District))
+                .attr('text-anchor', 'left')
                 .text(d.data.District)
 
             svg.append("text")
-                .attr("transform", "translate(" + (220) + "," + (-85) + ")")
+                .attr("transform", "translate(" + (-radius - 50) + "," + (radius + 50) + ")")
                 .attr("dy", "0.35em")
                 .attr("id", "oe")
                 .attr("class", "oe")
-                .attr('text-anchor', 'right')
+                .attr('text-anchor', 'left')
                 .text("OPERATING EXPENDITURES")
 
             svg.append("text")
-                .attr("transform", "translate(" + (220) + "," + 0 + ")")
+                .attr("transform", "translate(" + (-radius - 50) + "," + (radius + 110) + ")")
                 .attr("dy", "0.35em")
                 .attr("id", "f")
                 .attr("class", "funds")
-                .attr('text-anchor', 'right')
+                .attr('text-anchor', 'left')
                 .text("$" + formatDollarAmount(d.data.OperatingExpenditures))
 
         })
@@ -144,94 +139,13 @@ d3.csv("Data/2016-2017/FundingVsEnrollment.csv", function (csvData) {
             key = d.data.District;
 
             d3.select("#primaryChart")
-                .attr("data-key", key);       //Hacky way to pass parameters between .js files
-            //alert(key);    
+                .attr("data-key", key);       //Update key with the currently selected district
       })
       .on("mouseout", arcTweenRad(outerRadius , 150));
-	//.on("load",arcTweenRad(outerRadius-20, 150));
 
-	//d3.selectAll("path").transition()
 	Paths.transition()
     .duration(function (d,i) {return 200*d.endAngle})	
 	.style("opacity", 1)
 	.transition()
 	.attrTween("d", arcTweenRad(outerRadius,0));
-	
-	arcDat.enter().append("text")
-        .attr("transform", function (d) {
-            var midAngle = d.startAngle < Math.PI ? d.startAngle / 2 + d.endAngle / 2 : d.startAngle / 2 + d.endAngle / 2 + Math.PI;
-            return "translate(" + labelArc.centroid(d)[0] + "," + labelArc.centroid(d)[1] + ") rotate(-90) rotate(" + (midAngle * 180 / Math.PI) + ")";
-        })
-        .attr("dy", ".35em")
-        .attr("class", "labels")
-        .style("text-anchor", function (d) {
-            var rads = ((d.endAngle - d.startAngle) / 2) + d.startAngle;    //Need to work on this, anchoring is off
-            if (rads >= Math.PI / 4 && rads <= 3 * Math.PI / 4) {
-                return "start";
-            } else if (rads >= 5 * Math.PI / 4 && rads <= 7 * Math.PI / 4) {
-                return "end";
-            } else {
-                return "middle";
-            }
-        })        .text(function (d) { return (d.data.Funding > 10000) ? d.data.School : null; });
 });
-
-/*
-
-var barx = d3.scale.ordinal().rangeRoundBands([0, width], .05);
-
-var bary = d3.scale.linear().range([height, 0]);
-
-var xAxis = d3.svg.axis()
-    .scale(barx)
-    .orient("bottom")
-    .tickFormat(d3.time.format("%Y-%m"));
-
-var yAxis = d3.svg.axis()
-    .scale(bary)
-    .orient("left")
-    .ticks(10);
-
-d3.csv("Data/2016-2017/FundingVsAchievement.csv", function (csvData) {
-    if (key != null) {
-        data.forEach(function (d) {
-            d.below = d['Percent of Students Below'];
-            d.proficient = d['Percent of Students Proficient'];
-            d.accelerated = d['Percent of Students Accelerated'];
-            d.advanced = d['Percent of Students Advanced'];
-        });
-
-        x.domain(data.map(function (d) { return d.date; }));
-        y.domain([0, d3.max(data, function (d) { return d.value; })]);
-
-        svg.append("g")
-            .attr("class", "x axis")
-            .attr("transform", "translate(0," + height + ")")
-            .call(xAxis)
-            .selectAll("text")
-            .style("text-anchor", "end")
-            .attr("dx", "-.8em")
-            .attr("dy", "-.55em")
-            .attr("transform", "rotate(-90)");
-
-        svg.append("g")
-            .attr("class", "y axis")
-            .call(yAxis)
-            .append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("dy", ".71em")
-            .style("text-anchor", "end")
-            .text("Value ($)");
-
-        svg.selectAll("bar")
-            .data(data)
-            .enter().append("rect")
-            .style("fill", "steelblue")
-            .attr("x", function (d) { return barx(d.date); })
-            .attr("width", barx.rangeBand())
-            .attr("y", function (d) { return bary(d.value); })
-            .attr("height", function (d) { return height - bary(d.value); });
-    }
-});
-*/

@@ -6,12 +6,24 @@
     <script src="parallax.js-1.5.0/parallax.js"></script>
         <style>
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
-        h1 {
-            color: #F95738;
-            font: 48px arial;
-            font-weight: bold;
-            line-height: 3em;
-        }
+            h1 {
+                color: #F95738;
+                font: 32px arial;
+                font-weight: bold;
+                margin: 0px;
+                margin-left: 75px;
+                text-align: left;
+            }
+
+            h2 {
+                color: #878787;
+                font: 18px arial;
+                font-weight: bold;
+                margin: 0px;
+                margin-left: 75px;
+                text-align: left;
+            }
+
 
         .palette {
             font: 20px arial;
@@ -21,7 +33,7 @@
 
         .labels {
 
-            font: 32px arial;
+            font: 22px arial;
             font-style: italic;
             word-wrap: break-word;
 
@@ -34,14 +46,12 @@
         }
 
         .oe {
-            font: 32px arial;
+            font: 22px arial;
             fill: #105370;
         }
 
         .funds {
-            //font-family: 'Poiret One',cursive;
-            //font-size: 100px;
-            font: 100px arial;
+            font: 68px arial;
             font-weight: bold;
             fill: #F95738;
         }
@@ -58,8 +68,6 @@
         }
 		
 		path {
-			//stroke: #333;
-			//stroke-width: 0.5px;
 			transition: fill 250ms linear;
 			transition-delay: 150ms;
 		}
@@ -103,11 +111,12 @@
 <body bgcolor="#fff">
     <div class="parallax-window" data-parallax="scroll" data-image-src="columbusBG_BW.jpg">
     <center>
-        <h1>COLUMBUS EDUCATION STATISTICS</h1>
+        <h2>Central Ohio</h2>
+        <h1>EDUCATION<br>STATISTICS</h1>
 		<svg width="1400" height="1000"></svg>
 
         <script type="text/javascript" id="primaryChart" data-key="undefined" src="pieChart.js"></script>
-        <script type="text/javascript" src="gaugeChart.js"></script>
+        <!--<script type="text/javascript" src="gaugeChart.js"></script>-->
 
     </center>
 	</div>
