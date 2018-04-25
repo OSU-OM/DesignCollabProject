@@ -39,14 +39,15 @@ var label = d3.arc()
 var this_js_script = $('script[src*=somefile]'); // or better regexp to get the file name..
 var key = this_js_script.attr('data-my_var_1');
 
-	function arcTweenRad(outerRadius, delay) {
-	
+	function arcTweenRad(outerRadius, delay,bool) {
+	if(bool==true){
   return function() {
     d3.select(this).transition().delay(delay).attrTween("d", function(d) {
       var i = d3.interpolate(d.outerRadius, outerRadius);
       return function(t) { d.outerRadius = i(t); return arc(d); };
     });
   };
+	}
 }
 
 function arcTweenAng(newAngle) {
@@ -74,22 +75,31 @@ var rect = svg.append("rect")
     .attr("width", ((radius * 2) + 400))
     .attr("height", 3)
     .attr("fill", "#105370");
+
+
 	
 d3.csv("Data/CentralOhio/FundingVsEnrollment.csv", function (csvData) {
 	arcDat = svg.selectAll("path")
         .data(pieData(csvData));
 	
-	var Hover = false;
+	var canHover = true;
+	var selection=0;
 	
     Paths = arcDat.enter().append("path")
         .each(function (d) { d.outerRadius = innerRadius; })
         .attr("d", arc)
         .attr("fill", function (d) {
-            return colors(d.data.OperatingExpenditures);
+            return colors(d.data.OperatingExpenditures);	
         })
         .style("opacity", 0)
-        .on("mouseenter", arcTweenRad(outerRadius + 10, 0))
+        .on("mouseenter", function (d) {
+			if(canHover){
+						d3.select(this).transition()
+	.attrTween("d", arcTweenRad(outerRadius+10,10,true));		
+}
+		})
         .on("mouseover", function (d) {
+			if(canHover){
             d3.select("#l").remove();  //Delete previous label if one exists
             d3.select("#oe").remove();  //Delete previous Operating Expenditures label if it exists (although probably don't *really* need to do this since it's static)
             d3.select("#f").remove();  //Delete previous funding label if it exists
@@ -117,19 +127,49 @@ d3.csv("Data/CentralOhio/FundingVsEnrollment.csv", function (csvData) {
                 .attr("class", "funds")
                 .attr('text-anchor', 'left')
                 .text("$" + formatDollarAmount(d.data.OperatingExpenditures))
-
+			}
         })
         .on("click", function (d) {
+			selection=d;
+			canHover=!canHover;
+			
+			console.log("Hoverable: "+canHover);
+			if(!canHover){
             key = d.data.District;
-
+		console.log("Key : "+key);
             d3.select("#primaryChart")
                 .attr("data-key", key);       //Update key with the currently selected district
+				
+				
+							Paths.transition()
+    .duration(function (d2,i) {return 100*d.endAngle})	
+	.style("opacity", function (d2,i) {
+		if(canHover || d2==d){return 1}else{return 0.5}
+			});
+
+d3.select(this).transition()
+	.attrTween("d", arcTweenRad(outerRadius+10,10,true));			
+			
+		}else{
+						Paths.transition()
+    .duration(function (d2,i) {return 10*d.endAngle})	
+	.style("opacity", function (d2,i) {
+		if(canHover || d2==d){return 1}else{return 0.5}
+			}).transition()
+	.attrTween("d", arcTweenRad(outerRadius,0,true));	
+			
+		}	
       })
-      .on("mouseout", arcTweenRad(outerRadius , 150));
+      .on("mouseout", function (d) {
+			if(canHover){
+						d3.select(this).transition()
+	.attrTween("d", arcTweenRad(outerRadius,150,true));		
+}
+		});
 
 	Paths.transition()
     .duration(function (d,i) {return 200*d.endAngle})	
 	.style("opacity", 1)
 	.transition()
-	.attrTween("d", arcTweenRad(outerRadius,0));
+	.attrTween("d", arcTweenRad(outerRadius,0,true));
 });
