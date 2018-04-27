@@ -69,10 +69,34 @@ var arc = d3.arc()
     .padRadius(outerRadius)
     .innerRadius(innerRadius);
 
+
+//Seperation lines
 var rect = svg.append("rect")
     .attr("x", (-radius * 2))
     .attr("y", ((-radius) - 50))
     .attr("width", ((radius * 2) + 400))
+    .attr("height", 3)
+    .attr("fill", "#105370");
+
+var rect = svg.append("rect")
+    .attr("x", 450)
+    .attr("y", ((-radius) - 50))
+    .attr("width", 300)
+    .attr("height", 3)
+    .attr("fill", "#105370");
+
+var rect = svg.append("rect")
+    .attr("x", 800)
+    .attr("y", ((-radius) - 50))
+    .attr("width", 300)
+    .attr("height", 3)
+    .attr("fill", "#105370");
+
+
+var rect = svg.append("rect")
+    .attr("x", 450)
+    .attr("y", 50)
+    .attr("width", 650)
     .attr("height", 3)
     .attr("fill", "#105370");
 

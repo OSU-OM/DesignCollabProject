@@ -38,9 +38,23 @@ d3.selectAll("svg")
 
             console.log(key);
 
+            d3.select("#academics").remove();  //Delete previous bar chart if one's there
+            d3.select("#ah").remove();  //Delete previous academics header if one's there
+            d3.select("#gh").remove();  //Delete previous grade header if one's there
+            d3.select("#gf").remove();  //Delete previous grade footer if one's there
+            d3.select("#grade").remove();  //Delete previous grade if one's there
+
+
             d3.csv("Data/CentralOhio/Academics/" + key + "Academics.csv", function (data) {
 
                 //Derived from: https://bl.ocks.org/alandunning/7008d0332cc28a826b37b3cf6e7bd998
+
+                svgBar.append("text")
+                    .attr("id", "ah")
+                    .attr("transform", "translate(" + (700) + "," + (350) + ")")
+                    .attr("class", "header")
+                    .attr('text-anchor', 'left')
+                    .text(district);
 
                 data.forEach(function (d) {
                     d.Percent = +d.Percent;
@@ -54,9 +68,10 @@ d3.selectAll("svg")
                 var tooltip = d3.select("body").append("div").attr("class", "toolTip");
 
                 var g = svgBar.append("g")
+                    .attr("id", "academics")
                     .attr("transform", "translate(" + 700 + "," + 375 + ")");
 
-                data.sort(function (a, b) { return a.Percent - b.Percent; });
+                //data.sort(function (a, b) { return a.Percent - b.Percent; });
 
                 x.domain([0, d3.max(data, function (d) { return d.Percent; })]);
                 y.domain(data.map(function (d) { return d.Category; })).padding(0.3);
@@ -83,6 +98,39 @@ d3.selectAll("svg")
                     })
                     .on("mouseout", function (d) { tooltip.style("display", "none"); });
             });
+
+            //Grade Visualization
+            d3.csv("Data/CentralOhio/FundingVsAchievement.csv", function (data) {
+                data.forEach(function (d) {
+                    if (d.District == district) {
+
+                        svgBar.append("text")
+                            .attr("id", "grade")
+                            .attr("transform", "translate(" + (1040) + "," + (150) + ")")
+                            .attr("dy", "0.35em")
+                            .attr("class", "grade")
+                            .attr('text-anchor', 'left')
+                            .text(d.Grade);
+
+                        svgBar.append("text")
+                            .attr("id", "gh")
+                            .attr("transform", "translate(" + (1040) + "," + (80) + ")")
+                            .attr("class", "header")
+                            .attr('text-anchor', 'left')
+                            .text(district);
+
+                        svgBar.append("text")
+                            .attr("id", "gf")
+                            .attr("transform", "translate(" + (1040) + "," + (230) + ")")
+                            .attr("class", "footer")
+                            .attr('text-anchor', 'left')
+                            .text("assigned performance index grade");
+
+                    }
+                });  
+            });
+
+        
         }
         else
             console.log("District not changed!");
