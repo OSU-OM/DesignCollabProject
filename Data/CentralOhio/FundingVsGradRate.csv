@@ -1,4 +1,4 @@
-District,OperatingExpenditures,County,Address,City and Zip Code,Superintendent,Four Year Longitudinal Graduation Rate - Class of 2016,Grade,Four Year Graduation Rate Numerator - Class of 2016,Four Year Graduation Rate Denominator - Class of 2016,Four Year Graduation Rate - Similar District Average,Four Year Graduation Rate - Statewide Average
+District,OperatingExpenditures,County,Address,City and Zip Code,Superintendent,GradRate,Grade,Four Year Graduation Rate Numerator - Class of 2016,Four Year Graduation Rate Denominator - Class of 2016,Four Year Graduation Rate - Similar District Average,Statewide average Grad rate
 Bexley City,33245295.21,Franklin,348 S Cassingham Rd,"Bexley, OH, 43209-1897",Kimberly P. Miller,95,A,152,160,96.7,83.6
 Columbus City School District,741732367.9,,,,,74.1,,,,,
 Delaware City,54484300.55,Delaware,74 W William St,"Delaware, OH, 43015-2339",Paul A. Craft,92.6,B,311,336,93.4,83.6
@@ -21,13 +21,10 @@ Hilliard City,183974260.8,Franklin,2140 Atlas St,"Columbus, OH, 43228-9647",John
 Dublin City,194985705.6,Franklin,7030 Coffman Rd,"Dublin, OH, 43017-1068",Todd F. Hoadley,97.5,A,1191,1221,95.4,83.6
 Johnstown-Monroe Local,14273438.93,Licking,441 S Main St,"Johnstown, OH, 43031-1297",Dale L. Dickson,93.1,A,122,131,95.9,83.6
 Licking Heights Local,38173728.57,Licking,6539 Summit Rd SW,"Pataskala, OH, 43062-8767",Philip H. Wagner,95,A,208,219,94,83.6
-Northridge Local,12817264.88,Licking,6066 Johnstown Utica Rd,"Johnstown, OH, 43031-9408",Scott A. Schmidt,97.2,A,106,109,95.8,83.6
 Northridge Local,12817264.88,Montgomery,2008 Timber Ln,"Dayton, OH, 45414-4528",David A. Jackson,87.9,C,102,116,83.4,83.6
 Southwest Licking Local,35444018.26,Licking,927-A South Street,"Pataskala, OH, 43062",Robert T. Jennell,89.8,B,299,333,93.7,83.6
 Jefferson Local,13419553.07,Madison,906 W Main St,"West Jefferson, OH, 43162-1144",William R. Mullett,97.7,A,84,86,94.2,83.6
 Jonathan Alder Local,20620481.49,Madison,9200 US Route 42 S,"Plain City, OH, 43064",Gary L. Chapman,96.8,A,152,157,95.4,83.6
-Northridge Local,21121651.3,Licking,6066 Johnstown Utica Rd,"Johnstown, OH, 43031-9408",Scott A. Schmidt,97.2,A,106,109,95.8,83.6
-Northridge Local,21121651.3,Montgomery,2008 Timber Ln,"Dayton, OH, 45414-4528",David A. Jackson,87.9,C,102,116,83.4,83.6
 Teays Valley Local,36621254.73,Pickaway,385 Viking Way,"Ashville, OH, 43103-9638",Robin N. Halley,90.7,B,273,301,93.1,83.6
 Westfall Local,15736435.65,Pickaway,19463 Pherson Pike,"Williamsport, OH, 43164-9745",Lynn P. Landis,91.7,B,111,121,94.2,83.6
 Fairbanks Local,11803640.99,Union,11158 State Route 38,"Milford Center, OH, 43045-9764",Robert J. Humble,96.4,A,80,83,96.4,83.6

@@ -40,9 +40,14 @@ d3.selectAll("svg")
 
             d3.select("#academics").remove();  //Delete previous bar chart if one's there
             d3.select("#ah").remove();  //Delete previous academics header if one's there
+
             d3.select("#gh").remove();  //Delete previous grade header if one's there
             d3.select("#gf").remove();  //Delete previous grade footer if one's there
             d3.select("#grade").remove();  //Delete previous grade if one's there
+
+            d3.select("#grh").remove();  //Delete previous grade header if one's there
+            d3.select("#grf").remove();  //Delete previous grade footer if one's there
+            d3.select("#gradRate").remove();  //Delete previous grade if one's there
 
             d3.csv("Data/CentralOhio/Academics/" + key + "Academics.csv", function (data) {
 
@@ -127,6 +132,37 @@ d3.selectAll("svg")
 
                     }
                 });  
+            });
+
+            d3.csv("Data/CentralOhio/FundingVsGradRate.csv", function (data) {
+
+                data.forEach(function (d) {
+                    if (d.District == district) {
+
+                        svgBar.append("text")
+                            .attr("id", "gradRate")
+                            .attr("transform", "translate(" + (680) + "," + (150) + ")")
+                            .attr("dy", "0.35em")
+                            .attr("class", "gradRate")
+                            .attr('text-anchor', 'left')
+                            .text(d.GradRate + "%");
+
+                        svgBar.append("text")
+                            .attr("id", "grh")
+                            .attr("transform", "translate(" + (680) + "," + (80) + ")")
+                            .attr("class", "header")
+                            .attr('text-anchor', 'left')
+                            .text(district);
+
+                        svgBar.append("text")
+                            .attr("id", "grf")
+                            .attr("transform", "translate(" + (680) + "," + (230) + ")")
+                            .attr("class", "footer")
+                            .attr('text-anchor', 'left')
+                            .text("graduation rate");
+
+                    }
+                });
             });
 
         }
