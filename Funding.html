@@ -84,23 +84,29 @@
 		font-family: 'Poiret One',cursive;
 		}
 
-        .barChart {
-            font-family: 'Poiret One',cursive;
-            font-size: 18px;
-            stroke: #fff;
-        }
+            .barY line {
+                opacity: 0.0;
+            }
 
-        .barY {
-            font-family: 'Poiret One',cursive;
-            font-size: 14px;
-            stroke: #fff;
-        }
+            .barY text {
+                font: 18px arial;
+                fill: #105370;
+            }
 
-        .barX {
-           font-family: 'Poiret One',cursive;
-           font-size: 12px;
-           stroke: #fff;
-        }
+            .bar {
+                fill: #F95738;
+            }
+
+            .toolTip {
+                font: 18px arial;
+                position: absolute;
+                display: none;
+                min-width: 80px;
+                height: auto;
+                background: none repeat scroll 0 0 #ffffff;
+                padding: 14px;
+                text-align: center
+            }
 
         gaugeChart {
              transition: fill 250ms linear;
@@ -117,7 +123,7 @@
 		<svg width="1400" height="1000"></svg>
 
         <script type="text/javascript" id="primaryChart" data-key="undefined" src="pieChart.js"></script>
-        <!--<script type="text/javascript" src="gaugeChart.js"></script>-->
+        <script type="text/javascript" src="AcademicsBarChart.js"></script>
 
     </center>
 	</div>
