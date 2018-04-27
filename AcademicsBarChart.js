@@ -122,14 +122,14 @@ d3.selectAll("svg")
 
                         svgBar.append("text")
                             .attr("id", "gh")
-                            .attr("transform", "translate(" + (1040) + "," + (80) + ")")
+                            .attr("transform", "translate(" + (1040) + "," + (65) + ")")
                             .attr("class", "header")
                             .attr('text-anchor', 'left')
                             .text(district);
 
                         svgBar.append("text")
                             .attr("id", "gf")
-                            .attr("transform", "translate(" + (1040) + "," + (230) + ")")
+                            .attr("transform", "translate(" + (1040) + "," + (260) + ")")
                             .attr("class", "footer")
                             .attr('text-anchor', 'left')
                             .text("assigned performance index grade");
@@ -153,14 +153,14 @@ d3.selectAll("svg")
 
                         svgBar.append("text")
                             .attr("id", "grh")
-                            .attr("transform", "translate(" + (680) + "," + (80) + ")")
+                            .attr("transform", "translate(" + (680) + "," + (65) + ")")
                             .attr("class", "header")
                             .attr('text-anchor', 'left')
                             .text(district);
 
                         svgBar.append("text")
                             .attr("id", "grf")
-                            .attr("transform", "translate(" + (680) + "," + (230) + ")")
+                            .attr("transform", "translate(" + (680) + "," + (260) + ")")
                             .attr("class", "footer")
                             .attr('text-anchor', 'left')
                             .text("graduation rate");
