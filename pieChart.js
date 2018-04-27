@@ -208,10 +208,18 @@ d3.csv("Data/CentralOhio/FundingVsEnrollment.csv", function (csvData) {
 d3.select(this).transition()
 	.attrTween("d", arcTweenRad(outerRadius+10,10,true));			
 			
-			
+			d3.select("#l").remove();  //Delete previous label if one exists
 			d3.select("#f").remove();  //Delete previous funding label if it exists
 			
-			            txt = svg.append("text")
+				svg.append("text")
+                .attr("transform", "translate(" + (-radius - 50) + "," + (radius + 175) + ")")
+                .attr("dy", "0.35em")
+                .attr("id", "l")
+                .attr("class", "labels")
+                .attr('text-anchor', 'left')
+                .text(d.data.District)
+			    
+				txt = svg.append("text")
                 .attr("transform", "translate(" + (-radius - 50) + "," + (radius + 110) + ")")
                 .attr("dy", "0.35em")
                 .attr("id", "f")
