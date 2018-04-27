@@ -132,7 +132,7 @@ d3.selectAll("svg")
                             .attr("transform", "translate(" + (1040) + "," + (260) + ")")
                             .attr("class", "footer")
                             .attr('text-anchor', 'left')
-                            .text("assigned performance index grade");
+                            .text("Assigned Performance Index Grade");
 
                     }
                 });  
@@ -163,7 +163,7 @@ d3.selectAll("svg")
                             .attr("transform", "translate(" + (680) + "," + (260) + ")")
                             .attr("class", "footer")
                             .attr('text-anchor', 'left')
-                            .text("graduation rate");
+                            .text("Graduation Rate");
 							
 										txt2.transition().duration(750).tween("text", function() {
 				previousGradRate= d.GradRate;

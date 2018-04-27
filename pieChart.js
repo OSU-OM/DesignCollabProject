@@ -109,10 +109,10 @@ svg.append("svg:image")
     .attr("xlink:href", "grad-cap.png")
 
 svg.append("svg:image")
-    .attr('x', 870)
-    .attr('y', -180)
-    .attr('width', 160)
-    .attr('height', 160)
+    .attr('x', 850)
+    .attr('y', -170)
+    .attr('width', 100)
+    .attr('height', 120)
     .attr("xlink:href", "grade-sheet.png")
 
 var format = d3.format(",d");
