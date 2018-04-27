@@ -58,7 +58,7 @@ d3.selectAll("svg")
 
                 svgBar.append("text")
                     .attr("id", "ah")
-                    .attr("transform", "translate(" + (700) + "," + (350) + ")")
+                    .attr("transform", "translate(" + (680) + "," + (350) + ")")
                     .attr("class", "header")
                     .attr('text-anchor', 'left')
                     .text(district);
@@ -76,7 +76,7 @@ d3.selectAll("svg")
 
                 var g = svgBar.append("g")
                     .attr("id", "academics")
-                    .attr("transform", "translate(" + 700 + "," + 375 + ")");
+                    .attr("transform", "translate(" + 810 + "," + 375 + ")");
 
                 //data.sort(function (a, b) { return a.Percent - b.Percent; });
 
@@ -114,7 +114,7 @@ d3.selectAll("svg")
 
                         svgBar.append("text")
                             .attr("id", "grade")
-                            .attr("transform", "translate(" + (1040) + "," + (150) + ")")
+                            .attr("transform", "translate(" + (1035) + "," + (150) + ")")
                             .attr("dy", "0.35em")
                             .attr("class", "grade")
                             .attr('text-anchor', 'left')
