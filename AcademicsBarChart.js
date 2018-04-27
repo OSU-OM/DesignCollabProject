@@ -15,6 +15,9 @@ var scalingFactor = 30;
 var padding = 0;
 var barHeight = 10;
 
+var previousGradRate =0;
+var format2 = d3.format("d");
+
 /*
 Check to see if a user has selected a district every time something in the svg element is clicked.
 A new district is selected whenever a new slice of the pie chart is clicked.
@@ -91,7 +94,7 @@ d3.selectAll("svg")
                     .attr("x", 3)
                     .attr("height", y.bandwidth())
                     .attr("y", function (d) { return y(d.Category); })
-                    .attr("width", function (d) { return x(d.Percent); })
+                    //.attr("width", function (d) { return x(d.Percent); })
                     .attr("fill", "#105370")
                     .on("mousemove", function (d) {
                         tooltip
@@ -100,7 +103,8 @@ d3.selectAll("svg")
                             .style("display", "inline-block")
                             .html(d.Percent + "% of student body" + "<br>" + "considered " + d.Category);
                     })
-                    .on("mouseout", function (d) { tooltip.style("display", "none"); });
+                    .on("mouseout", function (d) { tooltip.style("display", "none"); })
+					.transition().duration(1000).attr("width", function (d) { return x(d.Percent); });
             });
 
             //Grade Visualization
@@ -139,13 +143,13 @@ d3.selectAll("svg")
                 data.forEach(function (d) {
                     if (d.District == district) {
 
-                        svgBar.append("text")
+                        txt2 =svgBar.append("text")
                             .attr("id", "gradRate")
                             .attr("transform", "translate(" + (680) + "," + (150) + ")")
                             .attr("dy", "0.35em")
                             .attr("class", "gradRate")
                             .attr('text-anchor', 'left')
-                            .text(d.GradRate + "%");
+                            .text(previousGradRate);
 
                         svgBar.append("text")
                             .attr("id", "grh")
@@ -160,6 +164,14 @@ d3.selectAll("svg")
                             .attr("class", "footer")
                             .attr('text-anchor', 'left')
                             .text("graduation rate");
+							
+										txt2.transition().duration(750).tween("text", function() {
+				previousGradRate= d.GradRate;
+            var that = txt2,
+                i = d3.interpolateNumber(that.text().replace(/,||%/g, ""), previousGradRate);
+            return function(t) { that.text(format2(i(t))+"%"); };
+			//return function(t){d.GradRate;};
+         });
                     }
                 });
             });

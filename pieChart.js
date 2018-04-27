@@ -139,6 +139,13 @@ d3.csv("Data/CentralOhio/FundingVsEnrollment.csv", function (csvData) {
 }
 		})
         .on("mouseover", function (d) {
+			
+							
+			selection=d;		
+            key = d.data.District;
+            d3.select("#primaryChart")
+                .attr("data-key", key);       //Update key with the currently selected district	
+			
 			if(canHover){
             d3.select("#l").remove();  //Delete previous label if one exists
             d3.select("#oe").remove();  //Delete previous Operating Expenditures label if it exists (although probably don't *really* need to do this since it's static)
@@ -170,7 +177,7 @@ d3.csv("Data/CentralOhio/FundingVsEnrollment.csv", function (csvData) {
 				//.tween('text', formatDollarAmount(d.data.OperatingExpenditures))
                 .text(previousDollarValue)
 				
-			txt.transition().duration(1500).tween("text", function() {
+			txt.transition().duration(750).tween("text", function() {
 				previousDollarValue= d.data.OperatingExpenditures;
             var that = txt,
                 i = d3.interpolateNumber(that.text().replace(/,|\$/g, ""), previousDollarValue);
