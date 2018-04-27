@@ -100,6 +100,21 @@ var rect = svg.append("rect")
     .attr("height", 3)
     .attr("fill", "#105370");
 
+//Images
+svg.append("svg:image")
+    .attr('x', 550)
+    .attr('y', -180)
+    .attr('width', 180)
+    .attr('height', 180)
+    .attr("xlink:href", "grad-cap.png")
+
+svg.append("svg:image")
+    .attr('x', 870)
+    .attr('y', -180)
+    .attr('width', 160)
+    .attr('height', 160)
+    .attr("xlink:href", "grade-sheet.png")
+
 var format = d3.format(",d");
 var previousDollarValue =0;
 	

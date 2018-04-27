@@ -160,7 +160,6 @@ d3.selectAll("svg")
                             .attr("class", "footer")
                             .attr('text-anchor', 'left')
                             .text("graduation rate");
-
                     }
                 });
             });
