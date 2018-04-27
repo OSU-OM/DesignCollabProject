@@ -1,33 +1,30 @@
 District,OperatingExpenditures,County,Region,City and Zip Code,Superintendent,Pre-School Enrollment,Kindergarten Enrollment,First Grade Enrollment,Second Grade Enrollment,Third Grade Enrollment,Fourth Grade Enrollment,Fifth Grade Enrollment,Sixth Grade Enrollment,Seventh Grade Enrollment,Eighth Grade Enrollment,Ninth Grade Enrollment ,Tenth Grade Enrollment,Eleventh Grade Enrollment,Twelfth Grade Enrollment,Thirteenth Grade Enrollment,Enrollment Past Twelfth Grade (Students with Disabilities)
 Bexley City,33245295.21,Franklin,Region 11,"Bexley, OH, 43209-1897",Kimberly P. Miller,<10,174,190,189,162,173,218,164,182,179,180,197,146,179,<10,<10
-Columbus City School District,741732367.9000001,,,,,,,,,,,,,,,,,,,,
+Columbus City School District,741732367.9,,,,,,,,,,,,,,,,,,,,
 Delaware City,54484300.55,Delaware,Region 11,"Delaware, OH, 43015-2339",Paul A. Craft,127,435,432,385,453,450,449,411,415,369,446,391,369,316,<10,<10
-Hamilton City,103231121.75999999,Butler,Region 13,"Hamilton, OH, 45012-0627",Anthony T. Orr,324,814,778,862,836,847,785,755,727,725,685,670,570,556,NC,11
-South-Western City,233375619.28,Franklin,Region 11,"Grove City, OH, 43123-9224",William H. Wise,671,1596,1714,1646,1804,1596,1646,1661,1625,1662,1870,1708,1559,1448,<10,15
+Hamilton City,103231121.8,Butler,Region 13,"Hamilton, OH, 45012-0627",Anthony T. Orr,324,814,778,862,836,847,785,755,727,725,685,670,570,556,NC,11
+South-Western City,233375619.3,Franklin,Region 11,"Grove City, OH, 43123-9224",William H. Wise,671,1596,1714,1646,1804,1596,1646,1661,1625,1662,1870,1708,1559,1448,<10,15
 Upper Arlington City,86780285.41,Franklin,Region 11,"Upper Arlington, OH, 43221-4398",Paul W. Imhoff,<10,209,445,464,446,474,482,434,482,486,443,470,478,393,NC,NC
 Westerville City,159467351.9,Franklin,Region 11,"Westerville, OH, 43081-3319",John R. Kellogg,226,703,1061,1115,1117,1075,1114,1158,1189,1154,1353,1191,1080,989,NC,<10
 Whitehall City,37059117.72,Franklin,Region 11,"Whitehall, OH, 43213-2861",Brian D. Hamler,181,299,294,293,287,286,250,227,237,230,256,249,165,136,<10,<10
-Worthington City,127956685.28,Franklin,Region 11,"Worthington, OH, 43085-2332",Trent H. Bowers,260,612,771,764,819,838,769,719,730,739,719,767,664,647,<10,12
+Worthington City,127956685.3,Franklin,Region 11,"Worthington, OH, 43085-2332",Trent H. Bowers,260,612,771,764,819,838,769,719,730,739,719,767,664,647,<10,12
 Marysville Exempted Village,50102900.72,Union,Region 11,"Marysville, OH, 43040-2105",Diane M. Mankins,<10,387,364,351,397,362,397,422,389,429,302,428,368,353,NC,<10
 Big Walnut Local,37056821.19,Delaware,Region 11,"Sunbury, OH, 43074-9334",Angela S. Pollock,111,223,271,283,291,267,301,255,285,255,253,220,226,221,NC,<10
 Buckeye Valley Local,23072744.46,Delaware,Region 11,"Delaware, OH, 43015-9562",Andrew J. Miller,73,108,145,142,135,150,158,169,165,182,195,170,164,143,NC,<10
-Olentangy Local,207924207.35999998,Delaware,Region 11,"Lewis Center, OH, 43035-9078",Mark T. Raiff,495,689,1496,1484,1569,1515,1630,1695,1722,1612,1587,1533,1421,1254,NC,15
-Pickerington Local,112321805.42,Fairfield,Region 11,"Pickerington, OH, 43147-1061",Chris M. Briggs,178,349,652,715,764,802,768,805,823,881,874,877,777,739,NC,NC
+Olentangy Local,207924207.4,Delaware,Region 11,"Lewis Center, OH, 43035-9078",Mark T. Raiff,495,689,1496,1484,1569,1515,1630,1695,1722,1612,1587,1533,1421,1254,NC,15
+Pickerington Local,112321805.4,Fairfield,Region 11,"Pickerington, OH, 43147-1061",Chris M. Briggs,178,349,652,715,764,802,768,805,823,881,874,877,777,739,NC,NC
 Canal Winchester Local,39309232.56,Franklin,Region 11,"Canal Winchester, OH, 43110-1224",James Sotlar,61,132,247,276,325,291,315,302,306,290,303,298,269,213,NC,<10
 Groveport Madison Local,66555206.47,Franklin,Region 11,"Groveport, OH, 43125-2009",Bruce A. Hoover,108,450,431,474,470,473,461,445,426,454,449,460,277,296,NC,<10
 New Albany-Plain Local,55056240.19,Franklin,Region 11,"New Albany, OH, 43054-7099",Michael L. Sawyers,NC,159,367,348,358,396,347,423,409,380,376,401,351,363,NC,<10
-Reynoldsburg City,66087728.269999996,Franklin,Region 11,"Reynoldsburg, OH, 43068-2014",Melvin Brown,85,253,530,558,579,570,554,522,529,540,569,543,453,487,NC,NC
-Hilliard City,183974260.75,Franklin,Region 11,"Columbus, OH, 43228-9647",John C. Marschhausen,300,824,1170,1197,1194,1210,1234,1246,1256,1277,1301,1293,1077,1051,<10,<10
-Dublin City,194985705.58999997,Franklin,Region 11,"Dublin, OH, 43017-1068",Todd F. Hoadley,270,515,1229,1177,1204,1232,1213,1174,1225,1208,1257,1204,1132,1089,<10,15
+Reynoldsburg City,66087728.27,Franklin,Region 11,"Reynoldsburg, OH, 43068-2014",Melvin Brown,85,253,530,558,579,570,554,522,529,540,569,543,453,487,NC,NC
+Hilliard City,183974260.8,Franklin,Region 11,"Columbus, OH, 43228-9647",John C. Marschhausen,300,824,1170,1197,1194,1210,1234,1246,1256,1277,1301,1293,1077,1051,<10,<10
+Dublin City,194985705.6,Franklin,Region 11,"Dublin, OH, 43017-1068",Todd F. Hoadley,270,515,1229,1177,1204,1232,1213,1174,1225,1208,1257,1204,1132,1089,<10,15
 Johnstown-Monroe Local,14273438.93,Licking,Region 11,"Johnstown, OH, 43031-1297",Dale L. Dickson,NC,58,105,128,122,127,117,129,139,106,111,131,113,116,NC,<10
 Licking Heights Local,38173728.57,Licking,Region 11,"Pataskala, OH, 43062-8767",Philip H. Wagner,113,330,344,323,341,318,325,326,305,319,316,309,236,235,NC,<10
-Northridge Local,12817264.879999999,Licking,Region 11,"Johnstown, OH, 43031-9408",Scott A. Schmidt,NC,80,90,79,86,94,76,107,84,95,102,98,89,78,NC,<10
-Northridge Local,12817264.879999999,Montgomery,Region 10,"Dayton, OH, 45414-4528",David A. Jackson,57,131,141,126,137,126,121,117,108,118,133,115,83,78,NC,<10
+Northridge Local,12817264.88,Licking,Region 11,"Johnstown, OH, 43031-9408",Scott A. Schmidt,NC,80,90,79,86,94,76,107,84,95,102,98,89,78,NC,<10
 Southwest Licking Local,35444018.26,Licking,Region 11,"Pataskala, OH, 43062",Robert T. Jennell,NC,314,288,296,330,316,314,288,334,318,325,288,221,250,NC,<10
 Jefferson Local,13419553.07,Madison,Region 11,"West Jefferson, OH, 43162-1144",William R. Mullett,NC,100,68,95,80,109,95,100,102,90,111,96,67,63,NC,NC
 Jonathan Alder Local,20620481.49,Madison,Region 11,"Plain City, OH, 43064",Gary L. Chapman,52,164,142,157,168,160,181,192,160,172,176,154,109,119,NC,NC
-Northridge Local,21121651.3,Licking,Region 11,"Johnstown, OH, 43031-9408",Scott A. Schmidt,NC,80,90,79,86,94,76,107,84,95,102,98,89,78,NC,<10
-Northridge Local,21121651.3,Montgomery,Region 10,"Dayton, OH, 45414-4528",David A. Jackson,57,131,141,126,137,126,121,117,108,118,133,115,83,78,NC,<10
-Teays Valley Local,36621254.730000004,Pickaway,Region 11,"Ashville, OH, 43103-9638",Robin N. Halley,47,254,317,331,300,330,309,290,310,283,297,332,238,240,NC,<10
+Teays Valley Local,36621254.73,Pickaway,Region 11,"Ashville, OH, 43103-9638",Robin N. Halley,47,254,317,331,300,330,309,290,310,283,297,332,238,240,NC,<10
 Westfall Local,15736435.65,Pickaway,Region 11,"Williamsport, OH, 43164-9745",Lynn P. Landis,28,95,93,94,97,112,127,102,119,106,111,126,66,75,NC,NC
 Fairbanks Local,11803640.99,Union,Region 11,"Milford Center, OH, 43045-9764",Robert J. Humble,NC,66,74,75,85,95,68,94,80,78,92,99,81,87,NC,NC

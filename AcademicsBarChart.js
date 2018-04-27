@@ -44,7 +44,6 @@ d3.selectAll("svg")
             d3.select("#gf").remove();  //Delete previous grade footer if one's there
             d3.select("#grade").remove();  //Delete previous grade if one's there
 
-
             d3.csv("Data/CentralOhio/Academics/" + key + "Academics.csv", function (data) {
 
                 //Derived from: https://bl.ocks.org/alandunning/7008d0332cc28a826b37b3cf6e7bd998
@@ -130,7 +129,6 @@ d3.selectAll("svg")
                 });  
             });
 
-        
         }
         else
             console.log("District not changed!");
