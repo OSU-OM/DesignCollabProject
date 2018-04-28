@@ -25,7 +25,10 @@
              text-align: left;
         }
 
-body{             margin: 0px;}
+        body {    
+            margin: 0px;
+
+        }
 		
         .palette {
             font: 20px arial;
@@ -38,13 +41,7 @@ body{             margin: 0px;}
             font: 22px arial;
             font-style: italic;
             word-wrap: break-word;
-
             fill: #105370;
-
-            width: 50px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
         .oe {
@@ -58,23 +55,17 @@ body{             margin: 0px;}
             fill: #F95738;
         }
 
-            .grade {
-                font: 120px arial;
-                font-weight: bold;
-                fill: #F95738;
-            }
+       .grade {
+            font: 120px arial;
+            font-weight: bold;
+            fill: #F95738;
+        }
 
-            .gradRate {
-                font: 120px arial;
-                font-weight: bold;
-                fill: #F95738;
-            }
-
-            .gauge {
-                font: 14px arial;
-                font-weight: bold;
-                fill: #105370;
-            }
+        .gradRate {
+            font: 120px arial;
+            font-weight: bold;
+            fill: #F95738;
+        }
 
         .parallax-window {
             min-height: 400px;
@@ -97,47 +88,41 @@ body{             margin: 0px;}
 		    font-family: 'Poiret One',cursive;
 		}
 
-            .barY line {
-                opacity: 0.0;
-            }
+        .barY line {
+            opacity: 0.0;
+         }
 
-            .barY text {
-                font: 18px arial;
-                fill: #105370;
-            }
-
-            .bar {
-                fill: #F95738;
-            }
-
-            .toolTip {
-                font: 18px arial;
-                position: absolute;
-                display: none;
-                min-width: 80px;
-                height: auto;
-                background: none repeat scroll 0 0 #ffffff;
-                padding: 14px;
-                text-align: center
-            }
-
-            .header {
-                font: 18px arial;
-                font-style: italic;
-                font-weight: bold;
-                fill: #105370;
-            }
-
-            .footer {
-                font: 18px arial;
-                fill: #105370;
-            }
-
-        gaugeChart {
-             transition: fill 250ms linear;
-             transition-delay: 150ms;
+        .barY text {
+            font: 18px arial;
+            fill: #105370;
         }
 
+        .bar {
+            fill: #F95738;
+        }
+
+        .toolTip {
+            font: 18px arial;
+            position: absolute;
+            display: none;
+            min-width: 80px;
+            height: auto;
+            background: none repeat scroll 0 0 #ffffff;
+            padding: 14px;
+            text-align: center
+        }
+
+        .header {
+            font: 18px arial;
+            font-style: italic;
+            font-weight: bold;
+            fill: #105370;
+        }
+
+        .footer {
+            font: 18px arial;
+            fill: #105370;
+        }
     </style>
 </head>
 <body bgcolor="#fff">
@@ -145,9 +130,9 @@ body{             margin: 0px;}
     <center>
         <h2>Central Ohio</h2>
         <h1>Education<br>Statistics</h1>
-		<svg width="1400" height="800"></svg>
+		<svg width="1400" height="1000"></svg>
         <script type="text/javascript" id="primaryChart" data-key="undefined" src="pieChart.js"></script>
-        <script type="text/javascript" src="AcademicsBarChart.js"></script>
+        <script type="text/javascript" src="DynamicVisualizations.js"></script>
     </center>
 	</div>
 </body>
